@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+    <style>
+        caption {
+            font-size: x-large;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <table border="1" width="500" align="center" bgcolor="#f0ffff">
+        <caption>User`s list</caption>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${listOfUsers}" align="center">
+            <td th:text="${user.getId()}">id</td>
+            <td th:text="${user.getName()}">name</td>
+            <td th:text="${user.getLastname()}">lastname</td>
+            <td th:text="${user.getAge()}">age</td>
+        </tr>
+        </tbody>
+    </table>
+    <div align="center">
+        <a href="/user/edit" style="text-decoration: none; color: grey; font-weight: bold; margin-right: 10px;">Edit User</a>
+
+        <a href="/user/delete" style="text-decoration: none; color: grey; font-weight: bold; margin-right: 10px;">Delete User</a>
+
+        <a href="/user/new" style="text-decoration: none; color: grey; font-weight: bold;">Add New User</a>
+    </div>
+</div>
+
+</body>
+</html>
