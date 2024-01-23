@@ -6,20 +6,16 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/user/edit}">
-    <label for="userId">ID: </label>
-    <input type="text" id="userId" name="id"/>
+    <input type="hidden" th:field="*{editUser.id}"/>
     <br/>
 
-    <label for="userName">Name: </label>
-    <input type="text" id="userName" name="name"/>
+    <label>Name: <input type="text" th:field="*{editUser.name}"/></label>
     <br/>
 
-    <label for="userLastname">Lastname: </label>
-    <input type="text" id="userLastname" name="lastname"/>
+    <label>Lastname: <input type="text" th:field="*{editUser.lastname}"/></label>
     <br/>
 
-    <label for="userAge">Age: </label>
-    <input type="text" id="userAge" name="age"/>
+    <label>Age: <input type="text" th:field="*{editUser.age}"/></label>
     <br/>
 
     <input type="submit" value="Update"/>

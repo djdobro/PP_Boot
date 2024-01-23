@@ -1,7 +1,15 @@
 package courses.PP_Spring.model;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -11,10 +19,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
+    @NotEmpty(message = "Поле не должно быть пустым")
     private String name;
     @Column
+    @NotEmpty(message = "Поле не должно быть пустым")
     private String lastname;
     @Column
+    @Min(value = 1)
     private byte age;
 
     public User(Integer id, String name, String lastname, byte age) {
